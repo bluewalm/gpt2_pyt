@@ -25,7 +25,7 @@ def print_model(model):
     print()
     print("number of parameters: {:,}".format(number_of_parameters))
     print("size of model (fp32): {:0.4f} MB".format(number_of_parameters * 4 / (1024**2)))
-    print("size of model (bf16): {:0.4f} MB".format(number_of_parameters * 2 / (1024**2)))
     print("size of model (fp16): {:0.4f} MB".format(number_of_parameters * 2 / (1024**2)))
+    print("size of model (bf16): {:0.4f} MB".format(number_of_parameters * 2 / (1024**2)))
     print()
 

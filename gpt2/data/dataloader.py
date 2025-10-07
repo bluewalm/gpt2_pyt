@@ -27,6 +27,6 @@ class Dataloader(torch.utils.data.DataLoader):
                               shuffle=False, 
                               pin_memory=False, 
                               drop_last=True,  # tensor shape mismatch otherwise 
-                              prefetch_factor=1, 
-                              num_workers=psutil.cpu_count(logical=False)) 
+                              #prefetch_factor=1, 
+                              num_workers=0)  # psutil.cpu_count(logical=False)) 
 

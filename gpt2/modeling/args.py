@@ -19,10 +19,10 @@ from dataclasses import dataclass, fields
 @dataclass
 class ModelArgs:
     dim: int
+    core_dim: int
     max_seq_len: int
     n_layers: int
-    n_heads: int
-    rate: int
+    pad_idx: int
     dropout: float
     vocab_size: int
     
@@ -34,5 +34,5 @@ class ModelArgs:
         # set the defaults (important) 
         if 'dropout' not in kwargs:
             setattr(self, 'dropout', 0.1)
-        assert self.dim % self.n_heads == 0
+        # assert self.dim % self.n_heads == 0
 

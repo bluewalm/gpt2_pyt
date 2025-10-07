@@ -20,7 +20,7 @@ for BATCH_SIZE in 32
 do
 for DIM in 128
 do
-for N_HEADS in 4
+for CORE_DIM in 128 424
 do
 for STEPS in 160000
 do
@@ -31,8 +31,8 @@ python -m gpt2 train --train_corpus         /workspace/Datasets/WikiPedia/pretra
                    --tokenizer              tokenizer.model \
                    --n_layers               ${N_LAYERS} \
                    --dim                    ${DIM} \
-                   --n_heads                ${N_HEADS} \
-                   --to_checkpoint          gpt2-softmax-layers${N_LAYERS}-dim${DIM}-heads${N_HEADS}-seqlen${SEQLEN}-batchsize${BATCH_SIZE}-steps${STEPS}.pth \
+                   --core_dim               ${CORE_DIM} \
+                   --to_checkpoint          gpt2-softplus-layers${N_LAYERS}-dim${DIM}-coredim${CORE_DIM}-seqlen${SEQLEN}-batchsize${BATCH_SIZE}-steps${STEPS}.pth \
                    --batch_size             ${BATCH_SIZE} \
                    --accumulation_steps     2 \
                    --max_seq_len            ${SEQLEN} \

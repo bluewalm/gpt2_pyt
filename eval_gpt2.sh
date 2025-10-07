@@ -20,21 +20,21 @@ for BATCH_SIZE in 32
 do
 for DIM in 128
 do
-for N_HEADS in 4
+for CORE_DIM in 128 424
 do
 for STEPS in 160000
 do
 for SEQLEN in 2048
 do
-python -m gpt2 evaluate --eval_corpus         /workspace/Datasets/WikiPedia/pretrain_data/eval \
-                      --tokenizer             tokenizer.model \
-                      --n_layers              ${N_LAYERS} \
-                      --dim                   ${DIM} \
-                      --n_heads               ${N_HEADS} \
-                      --from_checkpoint       gpt2-softmax-layers${N_LAYERS}-dim${DIM}-heads${N_HEADS}-seqlen${SEQLEN}-batchsize${BATCH_SIZE}-steps${STEPS}.pth \
-                      --batch_size            ${BATCH_SIZE} \
-                      --max_seq_len           ${SEQLEN} \
-                      --total_steps           1000 \
+python -m gpt2 evaluate --eval_corpus          /workspace/Datasets/WikiPedia/pretrain_data/eval \
+                      --tokenizer              tokenizer.model \
+                      --n_layers               ${N_LAYERS} \
+                      --dim                    ${DIM} \
+                      --core_dim               ${CORE_DIM} \
+                      --from_checkpoint        gpt2-softplus-layers${N_LAYERS}-dim${DIM}-coredim${CORE_DIM}-seqlen${SEQLEN}-batchsize${BATCH_SIZE}-steps${STEPS}.pth \
+                      --batch_size             ${BATCH_SIZE} \
+                      --max_seq_len            ${SEQLEN} \
+                      --total_steps            1000 \
                       --allow_tf32 \
                       --amp_bf16
 done

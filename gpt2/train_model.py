@@ -98,16 +98,14 @@ def add_subparser(subparsers : argparse._SubParsersAction):
                        help='tokenizer model file path')
     # model architecture 
     group = parser.add_argument_group('model architecture')
-    group.add_argument('--dim', default=768, type=positive_integer,
-                       help='dimension of representation in each layer')
-    group.add_argument('--max_seq_len', default=64, type=positive_integer,
+    group.add_argument('--dim', type=positive_integer, required=True,
+                       help='dimension of the internal representation of tokens')
+    group.add_argument('--max_seq_len', type=positive_integer, required=True,
                        help='maximum sequence length')
-    group.add_argument('--n_layers', default=12, type=positive_integer,
+    group.add_argument('--n_layers', type=positive_integer, required=True,
                        help='number of transformer layers')
-    group.add_argument('--n_heads', default=12, type=positive_integer,
-                       help='number of multi-heads in attention layer')
-    group.add_argument('--rate', default=4, type=positive_integer,
-                       help='rate of bottleneck')
+    group.add_argument('--core_dim', default=None, type=positive_integer,
+                       help='core dimension of the attention layer')
     # training and evaluation 
     group = parser.add_argument_group('training and evaluation')
     group.add_argument('--seed', default=None, type=int, 

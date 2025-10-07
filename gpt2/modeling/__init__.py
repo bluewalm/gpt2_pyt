@@ -13,9 +13,7 @@
 # limitations under the License. 
 
 from gpt2.modeling.args import ModelArgs
-from gpt2.modeling.feedforward import Linear, PositionwiseFeedForward
 from gpt2.modeling.attention import AttentionLayer
 from gpt2.modeling.embedding import PositionalEmbedding, TokenEmbedding
-from gpt2.modeling.masking import FutureMasking
 from gpt2.modeling.transformer import Transformer
 

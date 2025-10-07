@@ -13,5 +13,5 @@
 # limitations under the License. 
 
 from gpt2.deployment.deployer import Deployer
-from gpt2.deployment.utils import execute, export_inputs, shape_to_str, convert_to_tensorrt
+from gpt2.deployment.utils import execute, export_inputs, shape_to_str, convert_to_tensorrt, plugin_path
 

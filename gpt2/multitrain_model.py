@@ -87,7 +87,7 @@ def multitrain_gpt2_model(args : argparse.Namespace):
 
 
 def add_subparser(subparsers : argparse._SubParsersAction):
-    parser = subparsers.add_parser('multitrain', help='train GPT-2 model')
+    parser = subparsers.add_parser('multitrain', help='multitrain GPT-2 model')
     # corpus 
     group = parser.add_argument_group('corpus')
     group.add_argument('--train_corpus', type=directory, required=True,
@@ -104,10 +104,8 @@ def add_subparser(subparsers : argparse._SubParsersAction):
                        help='maximum sequence length')
     group.add_argument('--n_layers', type=positive_integer, required=True,
                        help='number of transformer layers')
-    group.add_argument('--n_heads', type=positive_integer, required=True, 
-                       help='number of heads in an attention layer')
-    group.add_argument('--rate', default=4, type=positive_integer,
-                       help='rate of bottleneck')
+    group.add_argument('--core_dim', default=None, type=positive_integer,
+                       help='core dimension of the attention layer')
     # training and evaluation 
     group = parser.add_argument_group('training and evaluation')
     group.add_argument('--seed', default=None, type=int, 
