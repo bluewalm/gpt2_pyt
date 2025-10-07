@@ -1,0 +1,9 @@
+regex
+tqdm
+torch
+numpy
+matplotlib
+sentencepiece
+wikinlp
+nltk
+
